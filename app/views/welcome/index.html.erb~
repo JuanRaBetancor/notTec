@@ -1,2 +1,2 @@
-<h1>notTec</h1>
+<h1>Bienvenido <%= current_user.email %> </h1>
 

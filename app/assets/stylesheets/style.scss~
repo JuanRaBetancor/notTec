@@ -13,9 +13,14 @@ html,body{
  padding: 10px 12px;
 }
 
+.red{
+ color: red !important;
+}
+
 a,a:visited{
- color: inherit !important;
+ color: inherit;
  text-decoration: none;
+ padding: 10px 12px;
 }
 
 .large-padding{
@@ -34,10 +39,6 @@ a,a:visited{
  margin: 0px;
 }
 
-.red{
- color: red !important;
-}
-
 #logo{
  font-size: 1.4em;
  color: orange;
@@ -47,7 +48,7 @@ a,a:visited{
   list-style:none;
 }
 
-.field{
+.field,.top-space,.actions{
  margin-top:1em;
 }
 
@@ -61,8 +62,10 @@ a,a:visited{
  font-size: 1.2em;
 }
 
-.top-space{
- margin-top: 1em;
+
+
+.text-left{
+ text-align: left;
 }
 
 
