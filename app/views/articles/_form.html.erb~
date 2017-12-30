@@ -1,0 +1,15 @@
+<%= form_for(@article) do |fila| %>
+ <% @article.errors.full_messages.each do |message| %>
+  <div class="be-grey white top-space">
+   * <%= message %>
+   </div>
+   <%end%>
+ <div class="field">
+  <%= fila.text_field :title, placeholder: "Título", class:"form-control" %>
+ </div>
+ <div class="field">
+  <%= fila.text_area :body, placeholder: "Escibe aquí la noticia", style:"height:250px;", 		class:"form-control" %>
+ </div>
+ <div class="field">
+  <%= fila.submit "Guardar", class:"btn be-grey white" %>
+<%end%>

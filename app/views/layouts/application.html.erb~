@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NotTec</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  
+  <header>
+    <nav class="be-grey white large-padding">
+     <ul class="no-list row center-xs middle-xs">
+     <li class="col-md"><h1 class="no-margin" id="logo"><%= link_to "notTec", root_path %></h1></li>
+      <li class="col-md">Sobre nosotros</li>
+      <li class="col-md">Contacto</li>
+      <li class="col-md">Iniciar sesión</li>
+      <li class="col-md">Registrarse</li>
+     </ul>
+    </nav>
+   </header>
+   
+    <%= yield %>
+  </body>
+</html>

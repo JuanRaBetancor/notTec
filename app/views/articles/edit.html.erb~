@@ -1,0 +1,5 @@
+<div style="width:80%;margin:0 auto;"> 
+ # Vistas parciales
+ <%= render "form", name: "Editar" %>
+</div>
+
