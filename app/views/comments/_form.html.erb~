@@ -1,10 +1,10 @@
-<%= form_for([@article,@comment]) do |form| %>
+<%= form_for([@article,@comment], remote: true, html: { id: "comments-form", :"data-type" => "json" }) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
       <ul>
-      <% c@omment.errors.full_messages.each do |message| %>
+      <% @comment.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,21 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :comment_user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :article_id %>
-    <%= form.text_field :article_id, id: :comment_article_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :comment_body %>
+    <%= f.label :body %>
+    <%= f.text_area :body%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>

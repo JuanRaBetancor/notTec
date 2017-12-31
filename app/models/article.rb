@@ -6,6 +6,10 @@ class Article < ApplicationRecord
  #callback
  before_save :set_visits_count
  
+ has_attached_file :cover, styles: { medium: "1280x720", thumb:"800x660"}
+ validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
+ 
+ 
  def update_visits_count
   self.save if self.visits_count.nil? #no hace falta ya
   self.update(visits_count: self.visits_count + 1)

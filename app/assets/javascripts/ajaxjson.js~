@@ -1,0 +1,8 @@
+
+$(document).on("ajax:success","form#comments-form", function(ev,data){
+ console.log(data)
+});
+
+$(document).on("ajax:error","form#comments-form", function(ev,data){
+ console.log(data)
+});

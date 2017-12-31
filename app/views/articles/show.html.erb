@@ -1,4 +1,7 @@
 <h1><%= @article.title %> </h1>
+<div class="field">
+ <%=  image_tag @article.cover.url(:thumb) %>
+</div>
 <% unless @article.user.nil? %>
 <p> 
  Escrito por: <%= @article.user.email %>
@@ -14,7 +17,7 @@
 <div class="field">
  <h3>Comentarios</h3>
  <%= render "comments/form" %>
- <ul>
+ <ul id="comments-box">
    <% @article.comments.each do |comment| %>
    <li>
     <%= comment.body %> - <%= comment.user.email %>
