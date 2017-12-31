@@ -1,18 +1,23 @@
 <h1><%= @article.title %> </h1>
+<div class="field">
+ <%=  image_tag @article.cover.url(:thumb) %>
+</div>
 <% unless @article.user.nil? %>
 <p> 
  Escrito por: <%= @article.user.email %>
 </p>
 <%end%>
+<div class="field">
+ <p>Categoriías: </p>
+ <% @article.categories.each do |category| %>
+ <%= link_to category.name, category, style:"color:#{category.color}" %>
+   <%end%>
+</div>
 <p> 
  Visitas: <%= @article.visits_count %>
 </p>
 <div>
      <%= @article.body %>
-</div>
-
-<div class="field">
- <%=  image_tag @article.cover.url(:thumb) %>
 </div>
 
 <div class="field">

@@ -11,6 +11,13 @@
  <div class="field">
   <%= fila.text_area :body, placeholder: "Escibe aquí la noticia", style:"height:250px;", 		class:"form-control" %>
  </div>
+  <div class="field">
+  <label>Categorías:</label>
+   <% @categories.each do |category| %>
+   <div class="field"><%= check_box_tag "categories[]", category.id %> <%= category.name %></div>
+    <%end%>
+ </div>
+ <div class="field">
  <div class="field">
   Portada: <%= fila.file_field :cover %> 
  </div>
