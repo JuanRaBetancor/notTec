@@ -1,2 +1,11 @@
+<% if user_signed_in? %>
 <h1>Bienvenido <%= current_user.email %> </h1>
+<%end%>
+<h1>notTec </h1>
 
+<% @articles.each do |noticia| %>
+<h1> <%= link_to noticia.title, noticia %> </h1>
+<div>
+     <%= noticia.body %> - <%= link_to "Eliminar", noticia, class:"red", method: :delete %>
+</div>
+<%end%>

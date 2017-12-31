@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+
   devise_for :users
   #get 'welcome/index'
   #get "paginicio", to: "welcome#index" -> etiquetas
   
-  #CRUD
-  resources :articles 
-  
+  #NESTED RESOURCES, recursos anidados
+  resources :articles do
+   resources :comments, only: [:create, :destroy, :update]
+  end
   
   #Ruta raiz
   root 'welcome#index'
