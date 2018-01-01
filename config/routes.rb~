@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :categories
   devise_for :users
   #get 'welcome/index'
   #get "paginicio", to: "welcome#index" -> etiquetas
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   
   #Ruta raiz
   root 'welcome#index'
+  
+  get "/dashboard", to: "welcome#dashboard"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

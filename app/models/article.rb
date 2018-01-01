@@ -1,7 +1,10 @@
 class Article < ApplicationRecord
+ include AASM
+
+
  belongs_to :user
- has_many :comments
- has_many :has_categories
+ has_many :comments, dependent: :destroy
+ has_many :has_categories, dependent: :destroy
  has_many :categories, through: :has_categories
  
 
@@ -16,6 +19,16 @@ class Article < ApplicationRecord
  validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
  
  
+ #SCOPES para mostrar los últimos 10 articulos publicados
+ 
+ scope :publicados, ->{ where(state: "published") }
+ 
+ scope :ultimos, ->{ order("created_at DESC").limit(10) }
+ 
+ #def self.publicados
+ # Article.where(state:"published")
+ #end
+ 
  def update_visits_count
   self.save if self.visits_count.nil? #no hace falta ya
   self.update(visits_count: self.visits_count + 1)
@@ -25,6 +38,26 @@ class Article < ApplicationRecord
  def categories=(value)
   @categories = value
  end
+ 
+ 
+ 
+
+  aasm column: "state" do
+  state :in_draft, initial: true
+  state :published
+  
+  event :publish do
+   transitions from: :in_draft, to: :published
+  end
+  
+  event :unpublish do
+   transitions from: :published, to: :in_draft
+  end
+  
+ end
+ 
+ 
+ 
  
  private
  

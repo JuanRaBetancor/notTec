@@ -37,6 +37,7 @@ gem 'jquery-rails'
 gem "devise"
 gem 'jquery-turbolinks'
 gem "paperclip"
+gem 'aasm'
 
 
 
