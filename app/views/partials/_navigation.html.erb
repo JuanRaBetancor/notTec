@@ -10,6 +10,7 @@
       <li class="col-md"> <%= link_to "Noticias", articles_path %>  </li>
       <% if user_signed_in? %>
       <li class="col-md"> <%= link_to "  Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+      <li class="col-md">Bienvenido:  <%= link_to current_user.email, welcome_index_path %></li>
       <% else %>
       <li class="col-md"><%= link_to "  Iniciar sesión", new_user_session_path %></li>
       <li class="col-md"><%= link_to "  Registrarse", new_user_registration_path %></li>

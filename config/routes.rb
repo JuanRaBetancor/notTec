@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-
+  
   resources :categories
   devise_for :users
-  #get 'welcome/index'
+  get 'welcome/index'
   #get "paginicio", to: "welcome#index" -> etiquetas
   
   #NESTED RESOURCES, recursos anidados
@@ -11,11 +11,13 @@ Rails.application.routes.draw do
   end
   
   #Ruta raiz
-  root 'welcome#index'
+  root 'articles#index'
   
   get "/dashboard", to: "welcome#dashboard"
   
   put "/articles/:id/publish", to: "articles#publish"
+
+  get "infouser", to: "welcome#index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
