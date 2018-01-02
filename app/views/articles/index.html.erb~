@@ -1,6 +1,7 @@
 <% @articles.each do |noticia| %>
 <h1> <%= link_to noticia.title, noticia %> </h1>
 <div>
-     <%= noticia.body %> - <%= link_to "Eliminar", noticia, class:"red", method: :delete %>
+     <%= noticia.body %>
 </div>
 <%end%>
+<%= will_paginate @articles %>

@@ -6,10 +6,10 @@
    </div>
    <%end%>
  <div class="field">
-  <%= fila.text_field :title, placeholder: "Título", class:"form-control" %>
+  <%= fila.trix_editor :title, placeholder: "Título", class:"form-control" %>
  </div>
  <div class="field">
-  <%= fila.text_area :body, placeholder: "Escibe aquí la noticia", style:"height:250px;", 		class:"form-control" %>
+  <%= fila.trix_editor :body, placeholder: "Escibe aquí la noticia", style:"height:250px;", 		class:"form-control" %>
  </div>
  <div class="field">
   <%= fila.submit "Guardar", class:"btn be-grey white" %>

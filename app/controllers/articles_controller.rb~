@@ -2,14 +2,14 @@ class ArticlesController < ApplicationController
         #Callback
         #before_action :validate_user, except: [:show,:index]
         before_action :authenticate_user!, except: [:show,:index]
-        before_action :set_article, except: [:index,:new,:create,:publish]
+        before_action :set_article, except: [:index,:new,:create]
         before_action :authenticate_editor!, only: [:new,:create,:update]
         before_action :authenticate_admin!,only: [:destroy,:publish]
         
         
 	#GET /articles -> news
 	def index
-	 @articles = Article.publicados.ultimos
+	 @articles = Article.paginate(page: params[:page],per_page:5).publicados.ultimos
 	end
 	
 	#GET /news/:id

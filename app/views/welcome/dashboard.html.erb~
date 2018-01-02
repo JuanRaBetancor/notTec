@@ -1,9 +1,9 @@
 <% @articles.each do |noticia| %>
-<h1> <%= link_to noticia.title, noticia %> </h1>
+<h1> <%= link_to noticia.title.html_safe, noticia %> </h1>
 <div>
-     <%= noticia.body %> - <%= link_to "Eliminar", noticia, class:"red", method: :delete %> 
+     <%= noticia.body.html_safe %> - <%= link_to "Eliminar", noticia, class:"red", method: :delete %> 
      <% if noticia.may_publish? %>
-      <%= link_to "- Publicar", "/articles/#{noticia.id}/publish", class:"blue", method: :put %>
+       <%= link_to "Publicar", "/articles/#{noticia.id}/publish", class:"blue", method: :put %>
       <%end%>
 </div>
 <%end%>

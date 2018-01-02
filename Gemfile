@@ -38,6 +38,10 @@ gem "devise"
 gem 'jquery-turbolinks'
 gem "paperclip"
 gem 'aasm'
+gem "will_paginate"
+gem 'wysiwyg-rails'
+gem 'ace-rails-ap'
+gem 'trix'
 
 
 

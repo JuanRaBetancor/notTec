@@ -19,6 +19,8 @@ class Article < ApplicationRecord
  validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
  
  
+ #SCOPES para mostrar los últimos 10 articulos publicados
+ 
  scope :publicados, ->{ where(state: "published") }
  
  scope :ultimos, ->{ order("created_at DESC").limit(10) }
