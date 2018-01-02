@@ -1,39 +1,35 @@
-<h1><%= @article.title.html_safe %> </h1>
-<div class="field">
- <%=  image_tag @article.cover.url(:thumb) %>
-</div>
-<% unless @article.user.nil? %>
-<p> 
- Escrito por: <%= @article.user.email %>
-</p>
-<%end%>
-<div class="field">
- <p>Categorías: </p>
- <% @article.categories.each do |category| %>
- <%= link_to category.name, category, style:"color:#{category.color}" %>
-   <%end%>
-</div>
-<p> 
- Visitas: <%= @article.visits_count %>
-</p>
-<div>
-     <%= @article.body.html_safe %>
-</div>
+<article class="bottom-space">
+	<%= article_cover @article.cover.url %>
+	<div class="row center-xs">
+		<div class="col-xs-12 light-border col-md-7">
+			<h1 class="be-big light-blue"><%= @article.title.html_safe %></h1>
+			<% if current_user.is_editor? %>
+ 				<div>
+ 					<%= link_to "Editar", edit_article_path(@article), class:"red" %>
+ 				</div>
+			<%end%>
+		
+			<p class="text-right be-small">
+				<%= link_to "Atrás", articles_path, class:"underline" %> - <span class="red"><%= @article.visits_count %> visita(s) </span> - 
+				<% unless @article.user.nil? %>
+				 Escrito por: <%= @article.user.email %>
+				<%end%>
+			</p>
+			<div class="field">
+			 <p>Categorías: </p>
+			 <% @article.categories.each do |category| %>
+			 <%= link_to category.name, category, style:"color:#{category.color}" %>
+			   <%end%>
+			</div>
 
-<div class="field">
- <h3>Comentarios</h3>
- <%= render "comments/form" %>
- <ul id="comments-box">
-   <% @article.comments.each do |comment| %>
-   <li>
-    <%= comment.body %> - <%= comment.user.email %>
-   <li>
-   <%end%>
- </ul>
-</div>
+			<div class="text-justify">
+				<%= @article.body.html_safe %>
+			</div>
 
-
-<div>
- <%= link_to "Editar", edit_article_path(@article), class:"red" %>
-</div>
+			<div class="top-space">
+				<%= render "articles/comments"%>
+			</div>
+		</div>
+	</div>
+</article>
 

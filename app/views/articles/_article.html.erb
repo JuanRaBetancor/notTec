@@ -1,8 +1,8 @@
-<div class="col-md top-space right-space">
+<div class="col-md-12 top-space">
 	<div class="box relative article-height">
-		<div class="absolute article-height background-cover" style="background: url(<%= article.cover.url(:medium) %>);top:0px;left:0px;width:100%;background-repeat: repeat;">
+		<div class="absolute article-height background-cover" style="background: url(<%= article.cover.url(:medium) %>);top:0px;left:0px;width:100%;background-size: cover;">
 		</div>
-		<div class="absolute article-height background-cover" style="background: rgba(0,0,0,0.5);top:0px;left:0px;width:100%;">
+		<div class="absolute article-height background-cover" style="background: rgba(0,0,0,0.5);top:0px;left:0px;width:100%;background-size: cover;">
 		</div>
 		<div class="relative white text-center">
 			<h2> <%= link_to article.title.html_safe, article %> </h2>

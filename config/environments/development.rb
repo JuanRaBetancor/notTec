@@ -25,7 +25,7 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-
+ 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -33,6 +33,17 @@ Rails.application.configure do
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
+
+
+
+
+
+  #For mailing
+  config.action_mailer.default_url_options = { host: "localhost:3000" }
+  config.action_mailer.delivery_method = :letter_opener
+
+
+
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load

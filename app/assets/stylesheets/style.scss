@@ -17,6 +17,18 @@ html,body{
  color: red !important;
 }
 
+.be-big{
+	font-size: 2em;
+}
+
+.bottom-space{
+	margin-bottom: 2em;
+}
+
+.light-blue{
+	color: #66ccFF !important;
+}
+
 .blue{
  color: blue !important;
 }
@@ -31,7 +43,6 @@ a,a:visited{
  padding: 20px;
 }
 
-
 .large-padding{
   padding: 10px 7px;
 }
@@ -42,6 +53,10 @@ a,a:visited{
 
 .white{
   color: #fff;
+}
+
+.grey{
+	color: #616161;
 }
 
 .no-margin{
@@ -84,6 +99,22 @@ a,a:visited{
 
 .text-center{
 	text-align: center;
+}
+
+.text-right{
+	text-align: right;
+}
+
+.text-justify{
+	text-align: justify;
+}
+
+.be-small{
+	font-size: 12px;
+}
+
+.underline{
+	text-decoration: underline;
 }
 
 .background.cover{
