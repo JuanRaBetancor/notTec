@@ -3,6 +3,8 @@
   <head>
     <title>NotTec</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' 			rel='stylesheet' type='text/css'>
+    <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'       rel='stylesheet' type='text/css'>
+    
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,6 +19,11 @@
      <%= notice %> <%= alert %>
    </div>
    
+
+
     <%= yield %>
+    
+    <%= render "partials/footer" %>
+
   </body>
 </html>

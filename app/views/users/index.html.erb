@@ -1,9 +1,15 @@
-<p>
-	Permisos: 1 = usuario normal, 2 = editor, 3 = administrador
-</p>
+<h1 style="margin-left: 20%;">Lista de Usuarios registrados en la web</h1>
 
-<ul>
-<% @users.each do |user| %>
-	<li>Usuario: <%= link_to user.email, user %> - Permisos: <%= user.permission_level %> </li>
-<%end%>
-</ul>
+<div class="contenedor-lista">
+	<p class="red">
+		Permiso: 1 = usuario normal <br>
+		Permiso: 2 = editor <br>
+		Permiso: 3 = administrador <br>
+
+	</p>
+	<ol id="lista2">
+	<% @users.each do |user| %>
+		<li><%= link_to user.email, user %> - Permiso: <%= user.permission_level %> </li>
+	<%end%>
+	</ol>
+</div>

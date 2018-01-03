@@ -2,28 +2,28 @@
 	<%= article_cover @article.cover.url %>
 	<div class="row center-xs">
 		<div class="col-xs-12 light-border col-md-7">
-			<h1 class="be-big light-blue"><%= @article.title.html_safe %></h1>
+			<h1 class="be-big title_text"><%= @article.title.html_safe %></h1>
 			<% if user_signed_in? %>
 				<% if current_user.is_editor? %>
-	 				<div>
-	 					<%= link_to "Editar", edit_article_path(@article), class:"red" %>
+	 				<div style="float:right;">
+	 					<%= link_to "Editar", edit_article_path(@article), class:"btn white be-red" %>
 	 				</div>
 				<%end%>
 		    <%end%>
 			<p class="text-right be-small">
-				<%= link_to "Atrás", articles_path, class:"underline" %> - <span class="red"><%= @article.visits_count %> visita(s) </span> - 
+				<%= link_to "Atrás", articles_path, class:"underline" %>- <span class="red"><%= @article.visits_count %> visita(s) </span> - 
 				<% unless @article.user.nil? %>
 				 Escrito por: <%= link_to @article.user.email, @article.user %>
 				<%end%>
 			</p>
 			<div class="field">
-			 <p>Categorías: </p>
+			 <p style="float: left;">Categorías:   <br/></p>
 			 <% @article.categories.each do |category| %>
-			 <%= link_to category.name, category, style:"color:#{category.color}" %>
+			 <%= link_to category.name, category, style:"background-color:#{category.color};float:left;", class:"bton white redondeado" %>
 			   <%end%>
 			</div>
 
-			<div class="text-justify">
+			<div class="text-justify cuerpo">
 				<%= @article.body.html_safe %>
 			</div>
 

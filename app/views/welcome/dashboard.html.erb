@@ -1,15 +1,43 @@
- <%= link_to "Crear nueva noticia", new_article_path, class:"red" %>
-
-<% @articles.each do |noticia| %>
-<h1> <%= link_to noticia.title.html_safe, noticia %> </h1>
-<div>
-     <%= noticia.body.html_safe %>  
-     <%= link_to "Editar", edit_article_path(noticia), class:"red" %> 
-     <% if current_user.is_admin? %>
-     	<%= link_to "Eliminar", noticia, class:"red", method: :delete %> 
-     	<% if noticia.may_publish? %>
-       		<%= link_to "Publicar", "/articles/#{noticia.id}/publish", class:"blue", method: :put %>
+ <div class="row">
+  <%= link_to "Crear nueva noticia", new_article_path, class:"btn redondeado be-red white top-margin", style:"margin-left:50px;" %>
+</div>
+<% @articles.each do |article| %>
+<div class="row">
+	<div class="box relative article-height container-fluid">
+		<div class="absolute article-height background-cover" style="background: url(<%= article.cover.url(:thumb) %>);top:0px;left:0px;width:100%;background-size: cover;">
+		</div>
+		<div class="absolute article-height background-cover" style="background: rgba(0,0,0,0.5);top:0px;left:0px;width:100%;background-size: cover;">
+		</div>
+		<div class="relative white text-center">
+			<h2> <%= link_to article.title.html_safe, article %> </h2>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div style="padding-left: 20%;">
+		<div class="top-space bottom-space">
+			<%= link_to "Editar", edit_article_path(article), class:"btn redondeado be-grey white" %> 
+		</div>
+		<% if current_user.is_admin? %>
+		<div class="top-space bottom-space">
+			<%= link_to "Eliminar", article, class:"btn redondeado be-red white", method: :delete, data: { confirm: 'Estas seguro?' } %> 
+		</div>
+		<% if article.may_publish? %>
+		<div class="top-space bottom-space">
+			<%= link_to "Publicar", "/articles/#{article.id}/publish", class:"btn redondeado be-blue white", method: :put %>
+		</div>
       	<%end%>
     <%end%>
+	</div>
 </div>
 <%end%>
+<div class="row">
+	<div style="padding-left: 20%;">
+		<%= will_paginate @articles %>
+	</div>
+</div>
+
+
+
+
+

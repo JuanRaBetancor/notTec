@@ -1,9 +1,9 @@
 <div class="grey">
 	<div class="row">
-		<div class="col-xs-6">
-			Participa en los comentarios
+		<div class="col-xs-6" style="text-align: left;">
+			Participa en los comentarios! <br> Recuerda<%= link_to "iniciar sesión", new_user_session_url, class:"red" %>primero :)
 		</div>
-		<div class="col-xs-6">
+		<div class="col-xs-6" style="text-align: right;">
 			<%= @article.comments.count %> comentario(s)
 		</div>
 	</div>

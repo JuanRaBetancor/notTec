@@ -1,5 +1,5 @@
-<article>
-	<header class="text-right be-small">
+<article class="comentario">
+	<header class="text-right be-small top-margin">
 		<%= time_ago_in_words(comment.created_at) %> ago
 		<% if user_signed_in? %>
 			<% if comment.user.email == current_user.email%>
@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="col-xs-1 col-md-1">
 			<div class="box">
-				<%= image_tag(comment.user.avatar) %> - <%= link_to comment.user.email, comment.user %>
+				<%= image_tag comment.user.avatar, class:"imagen" %><%= link_to comment.user.email, comment.user, class:"usuario" %>
 			</div>
 		</div>
 		<div class="col-xs-11 col-md-10">
