@@ -1,0 +1,16 @@
+<h1><%= @user.email %> </h1>
+<h3>Número de veces de inicio de sesión:  <%= @user.sign_in_count %> </h3>
+<h3>Último login hace:  <%= time_ago_in_words(@user.last_sign_in_at) %> </h3>
+<h3>Miembro de notTec desde hace:  <%= time_ago_in_words(@user.created_at) %> </h3>
+
+<h2>Comentarios hechos: </h2>
+<% @user.comments.each do |comment| %>
+	<%= comment.id %> <br/> <%= comment.body %> - Creado hace: <%= time_ago_in_words(comment.created_at) %>
+<%end%>
+
+<h2>Noticias hechas: </h2>
+<% @user.articles.each do |article| %>
+	Titulo: <%= link_to article.title.html_safe, article %> <br/> 
+	Creado hace: <%= time_ago_in_words(article.created_at) %> <br/>
+	Visitas: <%= article.visits_count %> <br/><br/>
+<%end%>

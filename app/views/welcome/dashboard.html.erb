@@ -1,9 +1,15 @@
+ <%= link_to "Crear nueva noticia", new_article_path, class:"red" %>
+
 <% @articles.each do |noticia| %>
 <h1> <%= link_to noticia.title.html_safe, noticia %> </h1>
 <div>
-     <%= noticia.body.html_safe %>  <%= link_to "Eliminar", noticia, class:"red", method: :delete %> -
-     <% if noticia.may_publish? %>
-       <%= link_to "Publicar", "/articles/#{noticia.id}/publish", class:"blue", method: :put %>
-      <%end%>
+     <%= noticia.body.html_safe %>  
+     <%= link_to "Editar", edit_article_path(noticia), class:"red" %> 
+     <% if current_user.is_admin? %>
+     	<%= link_to "Eliminar", noticia, class:"red", method: :delete %> 
+     	<% if noticia.may_publish? %>
+       		<%= link_to "Publicar", "/articles/#{noticia.id}/publish", class:"blue", method: :put %>
+      	<%end%>
+    <%end%>
 </div>
 <%end%>

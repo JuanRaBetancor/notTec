@@ -1,0 +1,9 @@
+<p>
+	Permisos: 1 = usuario normal, 2 = editor, 3 = administrador
+</p>
+
+<ul>
+<% @users.each do |user| %>
+	<li>Usuario: <%= link_to user.email, user %> - Permisos: <%= user.permission_level %> </li>
+<%end%>
+</ul>

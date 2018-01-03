@@ -1,20 +1,35 @@
 <header>
+    <nav class="be-black white large-padding">
+     <ul class="no-list row center-xs middle-xs">
+     <li class="col-md"></li>
+      <li class="col-md">  Sobre nosotros  </li>
+      <li class="col-md">  Contacto</li>
+      <li class="col-md"> <%= link_to "Noticias", articles_path %>  </li>
+      <% if user_signed_in? %>
+         <li class="col-md"> <%= link_to "  Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+         <li class="col-md">Bienvenido:  <%= link_to current_user.email, welcome_index_path %></li>
+      <% else %>
+         <li class="col-md"><%= link_to "  Iniciar sesión", new_user_session_path %></li>
+         <li class="col-md"><%= link_to "  Registrarse", new_user_registration_path %></li>
+      <%end%>
+     </ul>
+    </nav>
     <nav class="be-grey white large-padding">
      <ul class="no-list row center-xs middle-xs">
      <li class="col-md"><h1 class="no-margin" id="logo"><%= link_to "notTec  ", root_path %></h1></li>
-      <li class="col-md">  Sobre nosotros  </li>
-      <li class="col-md">  Contacto</li>
+     <li class="col-md"></li>
+     <li class="col-md"></li>
+     <li class="col-md"></li>
+     <li class="col-md"></li>
+     <li class="col-md"></li>
+     </ul>
+    </nav>
+    <nav class="be-black white large-padding">
+     <ul class="no-list row center-xs middle-xs">
       <% @categories.each do |category| %>
-      <li class="col-md">  <%= link_to category.name,category %></li>
-      <%end%>
-      <li class="col-md"> <%= link_to "Noticias", articles_path %>  </li>
-      <% if user_signed_in? %>
-      <li class="col-md"> <%= link_to "  Cerrar sesión", destroy_user_session_path, method: :delete %></li>
-      <li class="col-md">Bienvenido:  <%= link_to current_user.email, welcome_index_path %></li>
-      <% else %>
-      <li class="col-md"><%= link_to "  Iniciar sesión", new_user_session_path %></li>
-      <li class="col-md"><%= link_to "  Registrarse", new_user_registration_path %></li>
+          <li class="col-md">  <%= link_to category.name,category%></li>
       <%end%>
      </ul>
     </nav>
    </header>
+

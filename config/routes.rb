@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   
+  get 'users/show'
+
   resources :categories
   devise_for :users
+  resources :users
   get 'welcome/index'
   #get "paginicio", to: "welcome#index" -> etiquetas
   
