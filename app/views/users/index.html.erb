@@ -9,7 +9,7 @@
 	</p>
 	<ol id="lista2">
 	<% @users.each do |user| %>
-		<li><%= link_to user.email, user %> - Permiso: <%= user.permission_level %> </li>
+		<li><%= link_to user.email, user %> - Permiso: <%= user.permission_level %> - <%= link_to "Eliminar", user, class:"btn redondeado be-red white", method: :delete, data: { confirm: 'Estas seguro?' } %> </li>
 	<%end%>
 	</ol>
 </div>

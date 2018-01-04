@@ -326,3 +326,64 @@ a,a:visited{
 	border: 1px solid white;
 	border-radius: 20px;
 }
+
+.actividad{
+	margin-top: 1%;
+	background-color: white;
+	margin-right: 20%;
+	margin-left: 20%;
+	border: 1px solid white;
+	border-radius: 20px;
+}
+
+.actividad-comments{
+	margin: 2% 4% 2% 2%;
+}
+
+hr{
+	margin-left: 2%;
+	margin-right: 2%;
+	background-color: white;
+}
+
+.commentario{
+	margin-left: 2%;
+	margin-right: 2%;
+}
+
+.white{
+	color: white;
+}
+
+.actividad-posts{
+	margin: 2% 2% 2% 4%;
+}
+
+#logotipo{
+	color: orange;
+	font-size: 1.5em;
+}
+
+
+.blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+.blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+.blockquote p {
+  display: inline;
+}
+
+.right-space{
+	margin-right: 10px; 
+}

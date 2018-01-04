@@ -28,15 +28,16 @@ class ArticlesController < ApplicationController
 	 @article = current_user.articles.new(article_params)
 	 @article.categories = params[:categories]
 	 if @article.save
-	  redirect_to @article
+	  redirect_to @article, notice: "Artículo creado correctamente"
 	 else
 	  render :new
 	 end
 	end
 	
 	def destroy
-	 @article.destroy
-	 redirect_to articles_path
+	if @article.destroy
+	   redirect_to articles_path, notice: "Artículo eliminado correctamente"
+		end
 	end
 	
 	def edit

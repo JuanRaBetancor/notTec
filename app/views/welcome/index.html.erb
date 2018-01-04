@@ -24,18 +24,39 @@
 	<h5 class="row ">Número de veces de inicio de sesión:  <%= current_user.sign_in_count %> </h5>
 </div>
 
-<h2>Comentarios hechos: </h2>
-<% current_user.comments.each do |comment| %>
-	<br/> <%= comment.body %> - Creado hace: <%= time_ago_in_words(comment.created_at) %>  <%= link_to comment.article.title.html_safe, comment.article, class:"red" %>
-<%end%>
+<h1 style="margin-left: 20%;">Actividad</h1>
 
-<% if user_signed_in? %>
-	<% if current_user.is_editor? %>
-		<h2>Noticias hechas: </h2>
-		<% current_user.articles.each do |article| %>
-			Titulo: <%= link_to article.title.html_safe, article %> <br/> 
-			Creado hace: <%= time_ago_in_words(article.created_at) %> <br/>
-			Visitas: <%= article.visits_count %> <br/><br/>
+<div class="row center-xs middle-xs actividad">
+	<div class="col-md actividad-comments">
+		<h2>Comentarios</h2>
+		<h4>Cantidad de comentarios: <%= current_user.comments.count %></h4>
+		<hr>
+		<% current_user.comments.each do |comment| %>
+		    <div class="commentario" style="background: url(<%= comment.article.cover.url(:thumb) %>);top:0px;left:0px;width:100%;background-size: cover;">
+				 <h4 class="red"><%= link_to comment.article.title.html_safe, comment.article %></h4> 
+				 <h5 class="white"><%= comment.body %></h5>   
+				 <h5 class="white">Hace: <%= time_ago_in_words(comment.created_at) %></h5> 
+			</div>  
 		<%end%>
+
+	</div>
+
+	<div class="col-md actividad-comments">
+	<% if user_signed_in? %>
+		<% if current_user.is_editor? %>
+			<h2>Noticias hechas: </h2>
+			<h4>Cantidad de noticias: <%= current_user.articles.count %></h4>
+			<hr>
+		    <% current_user.articles.each do |article| %>
+		    	<div class="commentario" style="background: url(<%= article.cover.url(:thumb) %>);top:0px;left:0px;width:100%;background-size: cover;">
+					<h4 class="red"><%= link_to article.title.html_safe, article %></h4>
+					<h5 class="white">Hace: <%= time_ago_in_words(article.created_at) %></h5>
+					<h5 class="white">Visitas: <%= article.visits_count %> </h5>
+				</div>
+			<%end%>
+		<%end%>	
 	<%end%>	
-<%end%>
+	</div>
+</div>
+
+

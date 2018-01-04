@@ -8,6 +8,14 @@ class WelcomeController < ApplicationController
   def dashboard
     @articles = Article.paginate(page: params[:page],per_page:5).ultimos
   end
+
+  def contact
+    @users = User.all
+  end
+
+  def about
+  	@users = User.all
+  end
   
   
 end

@@ -1,0 +1,46 @@
+
+
+<div class="container">
+
+	<div class="row">
+		<h1><span id="logotipo">notTec</span> - Contacto</h1>
+	</div>
+
+	<div class="row descripción">
+		<blockquote class="blockquote">
+			<p>notTec es una publicación de notTec SL. para todos los apacionados de la tecnología. Se ocupa
+	                    de contar de manera rigurosa y con pasión la actualidad tecnolgógica como de analizar en profundidad
+	                    los principales lanzamientos y compararlos con otros modelos similares.</p>	
+
+		</blockquote>
+		
+	</div>
+
+	<div class="row">
+		<h3>Administradores:</h3>
+	</div>	
+	<div class="row">
+		<ol id="lista2">
+			<% @users.each do |user| %>
+				<% if user.is_admin? %>
+				<li><%= link_to image_tag(user.avatar), user %> Enviar correo: <a href="mailto:<%=user.email%>"><%=user.email%></a> </li>
+				<%end%>
+			<%end%>
+		</ol>
+		
+	</div>
+		
+	<div class="row">
+		<h3>Editores:</h3>
+	</div>
+	<div class="row">
+		<ol id="lista2">
+			<% @users.each do |user| %>
+				<% if user.is_editor? %>
+				<li><%= link_to image_tag(user.avatar), user %> Enviar correo: <a href="mailto:<%=user.email%>"><%=user.email%></a> </li>
+				<%end%>
+			<%end%>
+		</ol>
+	</div>
+		
+</div>

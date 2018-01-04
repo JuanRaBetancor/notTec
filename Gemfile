@@ -43,6 +43,8 @@ gem 'wysiwyg-rails'
 gem 'ace-rails-ap'
 gem 'trix'
 gem 'jquery-ui-rails', '5.0.5'
+gem "nokogiri"
+gem "htmlentities"
 
 
 
