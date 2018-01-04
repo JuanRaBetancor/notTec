@@ -1,21 +1,41 @@
 <% if user_signed_in? %>
-	<% if current_user.is_editor? %>
-	  <h2><%= link_to "Panel de control de categorías", categories_path %></h2>
-	  <h2><%= link_to "Panel de control de artículos", dashboard_path %></h2>
-	<%end%>
-	<% if current_user.is_admin? %>
-		<h2><%= link_to "Usuarios registrados", users_path %></h2>
-	<%end%>
-	<h1>Bienvenido: <%= link_to current_user.email, welcome_index_path %> </h1>
-	<h3>Número de veces de inicio de sesión:  <%= current_user.sign_in_count %> </h3>
-	<h3>Hora de inicio de la sesión actual:  <%= current_user.current_sign_in_at %> </h3>
-	<h3>Último login:  <%= current_user.last_sign_in_at %> </h3>
-	<h3>IP dirección:  <%= current_user.current_sign_in_ip %> </h3>
-	<h3>IP del último login:  <%= current_user.last_sign_in_ip %> </h3>
-	<h3>Fecha de creación de la cuenta:  <%= current_user.created_at %> </h3>
-	
-
+	<div class="row center-xs middle-xs panel-control">
+		<% if current_user.is_editor? %>
+		  <h4 class="col-md fade"><%= link_to "Panel de control de categorías", categories_path %></h4>
+		  <h4 class="col-md fade"><%= link_to "Panel de control de artículos", dashboard_path %></h4>
+		<%end%>
+		<% if current_user.is_admin? %>
+			<h4 class="col-md fade"><%= link_to "Usuarios registrados", users_path %></h4>
+		<%end%>
+	</div>
 <%end%>
 
+<div class="profile">
+	<div class="row margenes-laterales-bajo">
+		<%= image_tag current_user.avatar %>
+		<h4><%= link_to current_user.email, welcome_index_path %> </h4>
+		<%= link_to "Modificar perfil", edit_user_registration_path, class:"red" %>
+	</div>
 
+	
+	<h5 class="row ">Miembro en notTec desde hace:  <%= time_ago_in_words(current_user.created_at) %> </h5>
+	<h5 class="row ">Sesión abierta desde hace :  <%= time_ago_in_words(current_user.current_sign_in_at) %> </h5>
+	<h5 class="row ">Último login hace:  <%= time_ago_in_words(current_user.last_sign_in_at) %> </h5>
+	<h5 class="row ">Número de veces de inicio de sesión:  <%= current_user.sign_in_count %> </h5>
+</div>
 
+<h2>Comentarios hechos: </h2>
+<% current_user.comments.each do |comment| %>
+	<br/> <%= comment.body %> - Creado hace: <%= time_ago_in_words(comment.created_at) %>  <%= link_to comment.article.title.html_safe, comment.article, class:"red" %>
+<%end%>
+
+<% if user_signed_in? %>
+	<% if current_user.is_editor? %>
+		<h2>Noticias hechas: </h2>
+		<% current_user.articles.each do |article| %>
+			Titulo: <%= link_to article.title.html_safe, article %> <br/> 
+			Creado hace: <%= time_ago_in_words(article.created_at) %> <br/>
+			Visitas: <%= article.visits_count %> <br/><br/>
+		<%end%>
+	<%end%>	
+<%end%>

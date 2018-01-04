@@ -11,6 +11,10 @@
  <div class="field">
   <%= fila.trix_editor :body, placeholder: "Escibe aquí la noticia", style:"height:250px;", 		class:"form-control" %>
  </div>
+ 
+  <%= fila.label "Si no aparece el datepicker hay que recargar la página!! Fecha de creación: "%>
+  <%= fila.text_field :created_at, :id => "datepicker", class:"bottom-space top-margin" %>
+
   <div class="field">
   <label>Categorías:</label>
    <% @categories.each do |category| %>
@@ -19,7 +23,7 @@
  </div>
  <div class="field">
  <div class="field">
-  Portada: <%= fila.file_field :cover %> 
+  Portada: <%= fila.file_field :cover, class:"bottom-space top-margin" %> 
  </div>
  <div class="field">
   <%= fila.submit "Guardar", class:"btn be-grey white" %>

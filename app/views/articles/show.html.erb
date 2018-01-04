@@ -13,7 +13,7 @@
 			<p class="text-right be-small">
 				<%= link_to "Atrás", articles_path, class:"underline" %>- <span class="red"><%= @article.visits_count %> visita(s) </span> - 
 				<% unless @article.user.nil? %>
-				 Escrito por: <%= link_to @article.user.email, @article.user %>
+				 Escrito por: <%= link_to @article.user.email, @article.user %>Publicado el:<%=@article.created_at%> 
 				<%end%>
 			</p>
 			<div class="field">

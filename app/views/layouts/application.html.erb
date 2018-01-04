@@ -9,13 +9,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--
+  <script type="text/javascript" data-turbolinks-track="false">
+    function inicio(){
+      $('fecha').datepicker({dateFormat:'yy/mm/dd'})
+    }
+    $(document).ready(inicio);
+  </script>-->
+
   </head>
 
   <body>
   
    <%= render "partials/navigation" %>
 
-   <div style="<%= "display:none;" if notice.nil? and alert.nil? %>">
+   <!-- MENSAJES FLASH -->
+   
+   <div class="be-red" style="<%= "display:none;" if notice.nil? and alert.nil? %>">
      <%= notice %> <%= alert %>
    </div>
    

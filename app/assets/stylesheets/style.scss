@@ -290,3 +290,39 @@ a,a:visited{
 	margin-right: 20%;
 	margin-left: 20%;
 }
+
+.panel-control{
+	background-color: red;
+	border: 1px solid red;
+	border-radius: 30px;
+	margin-top: 20px;
+	margin-right: 20%;
+	margin-left: 20%;
+	color: white;
+	margin-bottom: 40px;
+}
+
+.fade{
+    opacity:0.5;
+}
+
+.fade:hover{
+    opacity:1;
+}
+
+.margenes-laterales-bajo{
+	margin-bottom: 10px;
+}
+
+.margen-izquierdo{
+	margin-left: 20%;
+}
+
+.profile{
+	background-color: white;
+	padding: 30px 30px 20px 40px;
+	margin-right: 20%;
+	margin-left: 20%;
+	border: 1px solid white;
+	border-radius: 20px;
+}
