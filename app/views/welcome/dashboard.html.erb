@@ -1,5 +1,5 @@
  <div class="row">
-  <%= link_to "Crear nueva noticia", new_article_path, class:"btn redondeado be-red white top-margin", style:"margin-left:50px;" %>
+  <%= link_to "Crear nueva noticia", new_article_path, class:"btn redondeado be-red white top-margin", style:"margin-left:50px;", data: { turbolinks: 'false' } %>
 </div>
 <% @articles.each do |article| %>
 <div class="row">
@@ -16,7 +16,7 @@
 <div class="row">
 	<div style="padding-left: 20%;">
 		<div class="top-space bottom-space">
-			<%= link_to "Editar", edit_article_path(article), class:"btn redondeado be-grey white" %> 
+			<%= link_to "Editar", edit_article_path(article), class:"btn redondeado be-grey white", data: { turbolinks: 'false' } %> 
 		</div>
 		<% if current_user.is_admin? %>
 		<div class="top-space bottom-space">

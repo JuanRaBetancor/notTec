@@ -6,14 +6,14 @@
 			<% if user_signed_in? %>
 				<% if current_user.is_editor? %>
 	 				<div style="float:right;">
-	 					<%= link_to "Editar", edit_article_path(@article), class:"btn white be-red" %>
+	 					<%= link_to "Editar", edit_article_path(@article), class:"btn white be-red", data: { turbolinks: 'false' } %>
 	 				</div>
 				<%end%>
 		    <%end%>
 			<p class="text-right be-small">
 				<%= link_to "Atrás", articles_path, class:"underline" %>- <span class="red"><%= @article.visits_count %> visita(s) </span> - 
 				<% unless @article.user.nil? %>
-				 Escrito por: <%= link_to @article.user.email, @article.user %>Publicado el:<%=@article.created_at%> 
+				 Escrito por: <%= link_to @article.user.email, @article.user, class:"underline" %>Publicado el:<%=@article.created_at%> 
 				<%end%>
 			</p>
 			<div class="field">
