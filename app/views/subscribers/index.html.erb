@@ -1,0 +1,24 @@
+<% if user_signed_in? %>
+	<% if cookies[:saved_lead] %>
+		<div class="container-fluid">
+			<h1 class="red">Gracias por suscribirte</h1>
+		</div>
+		
+	<%else%>
+		<div class="container">
+			<h1>Suscribete a nuestra newsletter aquí!</h1>
+			<%= form_for @subscriber do |f| %>
+			<%= f.text_field :name, placeholder: "Nombre", class:"form-control top-space" %>
+			<%= f.email_field :email, placeholder: "Email", class:"form-control top-space" %>
+			<div class="select_style">
+				<%= f.select :source, ["Tecnología", "Series", "Gangas", "General"], prompt: "Que te gustaría ver?" %>
+			</div>
+			<%= f.submit "Suscribirse", class:"btn be-grey large-padding white top-space" %>
+		<%end%>
+		</div>
+	<%end%>
+<%else%>
+	<div class="container-fluid">
+		<h1>Necesitas <%= link_to "  Iniciar sesión", new_user_session_path, class:"red" %> o <%= link_to "  Registrarte", new_user_registration_path, class:"red" %> para suscribirte</h1>
+	</div>
+<%end%>
