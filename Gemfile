@@ -45,6 +45,7 @@ gem 'trix'
 gem 'jquery-ui-rails', '5.0.5'
 gem "nokogiri"
 gem "htmlentities"
+gem 'seed_dump'
 
 
 
