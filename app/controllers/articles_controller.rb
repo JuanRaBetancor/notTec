@@ -54,7 +54,7 @@ class ArticlesController < ApplicationController
 	
 	def publish
 	 @article.publish!
-	 redirect_to @article
+	 redirect_to @article, notice: "Artículo publicado correctamente"
 	end
 	
 	

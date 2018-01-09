@@ -41,9 +41,8 @@ class Article < ApplicationRecord
  end
  
  
- 
 
-  aasm column: "state" do
+  aasm whiny_transitions: false, column: "state" do
   state :in_draft, initial: true
   state :published
   
@@ -56,7 +55,6 @@ class Article < ApplicationRecord
   end
   
  end
- 
  
  
  

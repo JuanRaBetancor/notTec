@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   def index
   	@users = User.all
+    @subscribers = Subscriber.all
   end
 
 end
